@@ -217,6 +217,7 @@ export default {
          this.addCateDialogVisible = false
        })
     },
+    
     addCateDialogClosed(){
       this.$refs.addCateFormRef.resetFields()
       this.selectedKeys = []
