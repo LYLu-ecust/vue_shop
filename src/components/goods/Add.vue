@@ -7,7 +7,6 @@
       <el-breadcrumb-item>添加商品</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card>
-
       <el-alert
         title="添加商品信息"
         type="info"

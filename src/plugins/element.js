@@ -1,4 +1,7 @@
 import Vue from 'vue'
+import Timeline from './timeline/index.js'
+import TimelineItem from './timeline-item/index.js'
+
 import{Button,
   Form,
   FormItem,
@@ -72,6 +75,8 @@ Vue.use(Step)
 Vue.use(Checkbox)
 Vue.use(CheckboxGroup)
 Vue.use(Upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
 
