@@ -13,15 +13,26 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
+// 导入NProgress对应的JS和CSS
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 配置axios
 import axios from 'axios'
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 // 请求拦截器添加token
+// 在request拦截器中显示进度条NProgress.start()
 axios.interceptors.request.use(config =>{
+  NProgress.start()
   config.headers.Authorization = window.sessionStorage.getItem("token")
   return config
 })
+// 在response拦截器中隐藏进度条NProgress.done()
+axios.interceptors.response.use(config =>{
+  NProgress.done()
+  return config
+})
 Vue.prototype.$http = axios
+
 import TreeTable from 'vue-table-with-tree-grid'
 Vue.component('tree-table',TreeTable)
 // 全局注册富文本编辑器

@@ -1,6 +1,6 @@
 <template>
   <div>
-  <!-- 面包屑导航区域 -->
+    <!-- 面包屑导航区域 -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>权限管理</el-breadcrumb-item>
@@ -20,33 +20,31 @@
           </template>
         </el-table-column>
       </el-table>
-      
     </el-card>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
+  data() {
+    return {
       // 权限列表
-      rightsLists:[]
+      rightsLists: []
     }
   },
   created() {
     this.getRightsLists()
-  }, 
+  },
   methods: {
-    async getRightsLists(){
-      const{data:res} = await this.$http.get('rights/list')
-      if(res.meta.status !== 200) return this.$message.error('获取列表失败')
+    async getRightsLists() {
+      const { data: res } = await this.$http.get('rights/list')
+      if (res.meta.status !== 200) return this.$message.error('获取列表失败')
       this.rightsLists = res.data
       console.log(this.rightsLists)
     }
-  },
+  }
 }
 </script>
 
 <style lang="less" scoped>
-  
 </style>
